@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header{
+    background-color: bisque;
+    display: grid;
+    grid-template-columns: 10% 10% 60% 20%;
+    padding: 1rem;
+}
+a{
+    text-decoration: none;
+    font-weight: bold;
+}
+.logo{
+    max-width: 80px;
+    max-height: 80px;
+    display: flex;
+    margin: auto;
+    border-radius: 50%;
+}
+.containerCategorias{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+}
+.containerHome,
+.containerContacto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
