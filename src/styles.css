@@ -9,7 +9,13 @@ header{
     justify-content: space-around;
     padding: 1rem;
     background: rgb(181,203,208);
-    background: linear-gradient(90deg, rgba(181,203,208,1) 0%, rgba(108,148,156,1) 100%);
+    background: linear-gradient(90deg, rgba(181,203,208,1) 0%, #6c949c 100%);
+}
+main{
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 footer{
     background-color: #b5cbd0;
@@ -17,9 +23,9 @@ footer{
     flex-direction: row;
     justify-content: space-evenly;
     padding: 1rem;
-    width: 100%;
+    /* width: 100%;
     position: fixed;
-    bottom: 0;
+    bottom: 0; */
     background: rgb(181,203,208);
     background: linear-gradient(90deg, rgba(181,203,208,1) 0%, rgba(108,148,156,1) 100%);
 }

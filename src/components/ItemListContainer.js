@@ -1,12 +1,12 @@
 import { Heading } from '@chakra-ui/react'
-function ItemListContainer (){
+function ItemListContainer ({ greeting }){
     return(
         <Heading size='2xl'
-        h='100px'
+        p='2'
         textAlign='center'
         bgGradient='linear(to-r, #e3f3f3, #154554)'
         bgClip='text'
-        fontWeight='extrabold'>Catálogo</Heading>
+        fontWeight='extrabold'>{greeting}</Heading>
         )
 };
 export default ItemListContainer;

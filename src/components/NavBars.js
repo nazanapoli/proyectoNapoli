@@ -4,7 +4,6 @@ import Categorias from './Categorias'
 import CartWidget from './CartWidget'
 function NavBar(){
     return(
-        <>
         <header>
             <div className="containerLogo">
                 <img src={logo} alt="" className="logo" />
@@ -14,9 +13,8 @@ function NavBar(){
                 <a href="#">Home</a>
             </div>
             <Categorias type="header"/>
-            <CartWidget/>
+            <CartWidget />
         </header>
-        </>
     )
 }
 export default NavBar;
