@@ -1,7 +1,6 @@
 import ItemListContainer from "./ItemListContainer";
-import CargaProducto from "./Cards";
 import { Grid } from '@chakra-ui/react'
-function Main(){
+export default function Main(){
     return(
         <>
             <ItemListContainer greeting='¡Bienvenido!'/>
@@ -10,14 +9,7 @@ function Main(){
                  m='auto'
                  gridTemplateColumns='repeat(3, 1fr)'
             >
-                <CargaProducto/>
-                {/* <CargaProducto/>
-                <CargaProducto/>
-                <CargaProducto/>
-                <CargaProducto/>
-                <CargaProducto/> */}
             </Grid>
         </>
     )
 }
-export default Main;

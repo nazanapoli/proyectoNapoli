@@ -1,4 +1,4 @@
-function Categorias(param){
+export default function Categorias(param){
         if(param.type==="header"){
             return(
                 <ul className="containerCategorias">
@@ -17,4 +17,3 @@ function Categorias(param){
             )
         }
 };
-export default Categorias;

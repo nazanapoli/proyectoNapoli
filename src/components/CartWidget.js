@@ -1,5 +1,5 @@
 import carrito from '../assets/carrito.png';
-function CartWidget(){
+export default function CartWidget(){
     return(
         <div className="containerCarrito">
             <img src={carrito} alt="" />
@@ -7,4 +7,3 @@ function CartWidget(){
         </div>
     )
 };
-export default CartWidget;

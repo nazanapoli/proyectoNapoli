@@ -1,6 +1,6 @@
 import Categorias from "./Categorias";
 import logo from '../assets/logo.jpg'
-function Footer(){
+export default function Footer(){
     return(
         <footer>
             <div className="containerLogo">
@@ -13,4 +13,3 @@ function Footer(){
         </footer>
     )
 };
-export default Footer;
