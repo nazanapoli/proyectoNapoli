@@ -26,7 +26,7 @@ export default function ItemListContainer ({ greeting }){
                 fontWeight='extrabold'
                 >{greeting}</Heading>
                 {!spinner && 
-                <HStack as='div' display='grid' placeItems='center'>
+                <HStack display='grid' placeItems='center'>
                         <Spinner size='xl' color='#6c949c' speed='0.8s' thickness='4px' />
                         <Text fontSize='large' color='#6c949c' fontWeight='bold' >
                                 Cargando...

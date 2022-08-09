@@ -15,17 +15,20 @@ export default function ItemCount({ initial, stock, onAdd }) {
     <>
       <ButtonGroup
         size="sm"
+        w='100%'
         isAttached
         variant="outline"
         display="grid"
         mt="2"
         gridTemplateColumns="1fr 1fr 1fr"
+        gridArea='count'
       >
         <IconButton onClick={decrecerCarrito} icon={<MinusIcon />} />
         <Button cursor='auto'>{contador}</Button>
         <IconButton onClick={aumentarCarrito} icon={<AddIcon />} />
       </ButtonGroup>
       <Button
+      gridArea='btn'
         size="sm"
         display="grid"
         mt="2"

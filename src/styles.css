@@ -1,4 +1,10 @@
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+  }
 *{
+    font-family: "San Francisco";
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -23,15 +29,17 @@ footer{
     flex-direction: row;
     justify-content: space-evenly;
     padding: 1rem;
-    /* width: 100%;
-    position: fixed;
-    bottom: 0; */
     background: rgb(181,203,208);
     background: linear-gradient(90deg, rgba(181,203,208,1) 0%, rgba(108,148,156,1) 100%);
 }
 a{
     text-decoration: none;
     font-weight: bold;
+}
+.item{
+    background-image: url(assets/wave.svg);
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
 }
 .logo{
     max-width: 80px;
@@ -59,4 +67,19 @@ a{
 .column{
     display: flex;
     flex-direction: column;
+}
+.spaceAround{
+    justify-content: space-around;
+}
+.animation:hover{
+    cursor: pointer;
+    transition: ease-in-out 1s;
+    transform: rotate(360deg);
+}
+.pointer{
+    cursor: pointer;
+}
+.pointer:hover{
+    transition: ease-in-out 1s;
+    transform: scale(1.1);
 }

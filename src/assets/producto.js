@@ -2,7 +2,7 @@ export const producto = [
     {
         id: 1,
         image: "https://essential.vtexassets.com/arquivos/ids/590671-800-auto?v=637936063476130000&width=800&height=auto&aspect=true",
-        title: "REMERA ADIDAS ORIGINALS BLOCKED 3 BANDAS",
+        title: "REMERA ADIDAS ORIGINALS BLOCKED",
         description: "Simplicidad reimaginada. Esta remera adidas actualiza un estilo minimalista con colores sutiles y las 3 Tiras que van desde el cuello hasta las mangas. Las aberturas laterales en el dobladillo te permiten moverte con libertad y disfrutar de la suavidad del tejido.",
         category: "indumentaria",
         price: 10999,
@@ -12,7 +12,7 @@ export const producto = [
     {
         id: 2,
         image: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3d3187715c3d4301bac4ae3c00d114cb_9366/Campera_de_Presentacion_Condivo_22_Real_Madrid_Negro_HA2594_21_model.jpg",
-        title: "CAMPERA DE PRESENTACIÓN CONDIVO 22 REAL MADRID",
+        title: "CAMPERA DE PRESENTACIÓN REAL MADRID",
         description: "No es solo cómo jugás. Es la forma en que te presentás. Esta campera de fútbol adidas destaca tu lealtad al Real Madrid.",
         category: "indumentaria",
         price: 21999,
@@ -81,7 +81,7 @@ export const producto = [
     {
         id: 9,
         image: "https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw7e2542af/products/PU_084002-01/PU_084002-01-1.JPG",
-        title: "Pelota Puma Orbita Serie A Hybrid",
+        title: "Pelota Puma Orbita Serie A",
         description: "La pelota Puma Orbita Serie A Hybrid es perfecta para tus días de entrenamiento, partido o jugar con tus amigos. Su material la hace duradera, ofrece un buen rebote y vuelo. Un rendimiento polivalente como a vos te gusta.",
         category: "accesorios",
         price: 7999,

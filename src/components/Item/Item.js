@@ -3,9 +3,9 @@ import ItemCount from '../ItemCount';
 import ItemButtonDetalle from '../ItemButtonDetalle/ItemButtonDetalle';
 export const Item = ({ product }) => {
   return (
-    <HStack h='100%'         display='flex'
-    alignItems='flex-start'>
+    <HStack h='100%' display='flex' alignItems='flex-start' >
       <Box
+       className='item' 
         maxW="sm"
         borderWidth="1px"
         borderRadius="lg"
@@ -19,6 +19,7 @@ export const Item = ({ product }) => {
           pl="4"
           pt="4"
           fontWeight="semibold"
+          fontSize='20px'
           as="h4"
           lineHeight="tight"
           noOfLines={1}
@@ -35,11 +36,8 @@ export const Item = ({ product }) => {
 
         </Box>
 
-        <Box p="4">
+        <Box p="4" >
           {' '}
-          <Box display="flex" alignItems="baseline" textAlign="center">
-            {product.description}
-          </Box>
           <Stat>
             <StatNumber>${product.price}</StatNumber>
             <StatHelpText>{product.size}</StatHelpText>
