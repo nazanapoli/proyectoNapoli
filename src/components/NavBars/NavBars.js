@@ -1,9 +1,10 @@
-import home from '../assets/home.png'
-import logo from '../assets/logo.jpg'
-import Categorias from './Categorias'
-import CartWidget from './CartWidget'
+import home from '../../assets/home.png'
+import logo from '../../assets/logo.jpg'
+import Categorias from '../Categorias/Categorias'
+import CartWidget from '../CartWidget/CartWidget'
 import { HStack, Box, Image } from '@chakra-ui/react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 export default function NavBar({greeting}){
 
     const [isVisible, setIsVisible] = useState(false);
@@ -18,7 +19,9 @@ export default function NavBar({greeting}){
     return(
         <header>
             <div className="containerLogo">
-                <img src={logo} alt="" className="logo" />
+                <Link to='/'>
+                    <img src={logo} alt="" className="logo" />
+                </Link>
             </div>
             <HStack 
             w='30px' 
@@ -30,8 +33,9 @@ export default function NavBar({greeting}){
             className="pointer">
 
                 <Image src={isVisible ? '' : home} alt='' />
-                <Box fontWeight='bold' display={isVisible ? "flex" : "none"}>Home</Box>
-
+                <Link to='/'>
+                    <Box fontWeight='bold' display={isVisible ? "flex" : "none"}>Home</Box>
+                </Link>
             </HStack>
             <Categorias type="header"/>
             <CartWidget />

@@ -1,6 +1,7 @@
-import carrito from '../assets/carrito.png';
+import carrito from '../../assets/carrito.png';
 import { HStack, Box, Image } from '@chakra-ui/react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 export default function CartWidget(){
     const [isVisible, setIsVisible] = useState(false);
 
@@ -20,7 +21,9 @@ export default function CartWidget(){
         onMouseOut={out}
         className="pointer">
             <Image src={isVisible ? '' : carrito}/>
-            <Box fontWeight='bold' display={isVisible ? "flex" : "none"}>Carrito</Box>
+            <Link to='/cart'>
+              <Box fontWeight='bold' display={isVisible ? "flex" : "none"}>Carrito</Box>
+            </Link>
         </HStack>
     )
 };

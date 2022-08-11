@@ -1,19 +1,25 @@
 import { HStack, Box, Image, Stat, Badge, StatNumber, StatHelpText } from '@chakra-ui/react';
-import ItemCount from '../ItemCount';
+import { Link } from 'react-router-dom';
+import ItemCount from '../ItemCount/ItemCount';
 import ItemButtonDetalle from '../ItemButtonDetalle/ItemButtonDetalle';
 export const Item = ({ product }) => {
   return (
     <HStack h='100%' display='flex' alignItems='flex-start' >
       <Box
-       className='item' 
+       className='item'
+       boxShadow='0 0.5rem 1rem rgba(0, 0, 0, 0.2)' 
         maxW="sm"
         borderWidth="1px"
         borderRadius="lg"
         overflow="hidden"
         m="1rem auto"
+        transition='transform 0.2s'
+        cursor='pointer'
+        position='relative'
        >
-
-        <Image src={product.image} alt={product.title} maxW="400px" />
+        <Link to={`/detail/${product.id}`}>
+          <Image src={product.image} alt={product.title} maxW="400px" />
+        </Link>
 
         <Box
           pl="4"
@@ -45,7 +51,7 @@ export const Item = ({ product }) => {
 
           <ItemCount initial={1} stock={product.stock} onAdd={() => {}} />
 
-          <ItemButtonDetalle />
+          <ItemButtonDetalle id={product.id}/>
 
         </Box>
       </Box>

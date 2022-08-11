@@ -1,8 +1,9 @@
-import Categorias from "./Categorias";
+import Categorias from "../Categorias/Categorias";
 import { Image } from "@chakra-ui/react";
-import logo from '../assets/logo.jpg'
-import instagram from '../assets/instagram.png'
-import facebook from '../assets/facebook.png'
+import { Link } from "react-router-dom";
+import logo from '../../assets/logo.jpg'
+import instagram from '../../assets/instagram.png'
+import facebook from '../../assets/facebook.png'
 export default function Footer(){
     function redireccion(url) {
         window.location.href = url
@@ -10,7 +11,9 @@ export default function Footer(){
     return(
         <footer>
             <div className="containerLogo">
-                <img src={logo} alt="" className="logo" />
+                <Link to='/'>
+                    <img src={logo} alt="" className="logo" />
+                </Link>
             </div>
             <Categorias/>
             <div className="column spaceAround">

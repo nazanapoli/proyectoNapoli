@@ -1,22 +1,28 @@
 import { Heading, Spinner, HStack, Text } from '@chakra-ui/react'
-import { ItemList } from './ItemList/ItemList'
-import {producto} from "../assets/producto"
-import { customFetch } from "../assets/customFetch"
+import { ItemList } from '../ItemList/ItemList'
+import {producto} from "../../assets/producto"
+import { customFetch } from "../../assets/customFetch"
 import { useState, useEffect } from "react"
+import { useParams } from 'react-router'
 
 export default function ItemListContainer ({ greeting }){
 
   const [listaProductos, setListaProductos] = useState([])
   const [spinner, setSpinner] = useState(false)
+  const catParams = useParams()
 
   useEffect(()=>{
     customFetch(producto)
         .then(data => {
                 setSpinner(true)
-                setListaProductos(data)
+                if (!catParams.category) {
+                        setListaProductos(data)
+                } else {
+                        setListaProductos(data.filter(item => item.category === catParams.category))
+                }
         })
-  },[])
-    return(
+  },[catParams])
+    return (
         <>
                 <Heading size='2xl'
                 p='2'
@@ -35,6 +41,5 @@ export default function ItemListContainer ({ greeting }){
                 }
                 {spinner && <ItemList listaProductos={listaProductos} />}
         </>
-
         )
 };

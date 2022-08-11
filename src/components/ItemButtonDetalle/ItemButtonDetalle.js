@@ -1,8 +1,11 @@
 import { Button  } from '@chakra-ui/react';
-export default function ItemButtonDetalle() {
+import {Link} from 'react-router-dom'
+
+export default function ItemButtonDetalle({id}) {
 
   return (
-    <Button
+    <Link to={`/detail/${id}`}>
+      <Button
         size="sm"
         display="grid"
         mt="2"
@@ -11,6 +14,7 @@ export default function ItemButtonDetalle() {
         color="#6c949c"
       >
         Ver detalle
-    </Button>
+      </Button>
+    </Link>
   );
 }

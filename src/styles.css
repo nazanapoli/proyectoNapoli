@@ -17,11 +17,11 @@ header{
     background: rgb(181,203,208);
     background: linear-gradient(90deg, rgba(181,203,208,1) 0%, #6c949c 100%);
 }
+
 main{
     max-width: 1200px;
     margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
 }
 footer{
     background-color: #b5cbd0;
@@ -40,6 +40,10 @@ a{
     background-image: url(assets/wave.svg);
     background-repeat: no-repeat;
     background-position: 100% 100%;
+    overflow: hidden;
+}
+.item:hover{
+    transform: scale(1.04);
 }
 .logo{
     max-width: 80px;
@@ -49,8 +53,11 @@ a{
     border-radius: 50%;
 }
 .containerCategorias{
-    display: contents;
-    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.containerCategorias a{
+    margin: 0 1rem;
 }
 .containerCategorias li{
     display: flex;
@@ -80,6 +87,6 @@ a{
     cursor: pointer;
 }
 .pointer:hover{
-    transition: ease-in-out 1s;
-    transform: scale(1.1);
+    transition: ease-in-out 0.75s;
+    transform: scale(1.05);
 }

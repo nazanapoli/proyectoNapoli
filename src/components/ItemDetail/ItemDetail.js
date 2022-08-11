@@ -1,5 +1,5 @@
 import { Box, Image, Stat, StatNumber, Text, Select } from '@chakra-ui/react';
-import ItemCount from '../ItemCount'
+import ItemCount from '../ItemCount/ItemCount'
 
 export const ItemDetail = ({detail}) => {
   return (
@@ -10,12 +10,12 @@ export const ItemDetail = ({detail}) => {
         overflow="hidden"
         m="1rem auto"
         display='grid'
-        w='70%'
+        w='auto'
         gridTemplateAreas={`'image title' 'image description'`}
        >
 
           <Box gridArea='image' display='grid' placeItems='center'>
-            <Image src={detail.image} alt={detail.title} />
+            <Image src={detail.image} alt={detail.title} height='100%'/>
           </Box>
 
 
