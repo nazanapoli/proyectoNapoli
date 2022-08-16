@@ -19,6 +19,15 @@ export default function ItemListContainer ({ greeting }){
                         setListaProductos(data)
                 } else {
                         setListaProductos(data.filter(item => item.category === catParams.category))
+                        return(
+                                <Heading size='2xl'
+                                p='2'
+                                textAlign='center'
+                                bgGradient='linear(to-r, #e3f3f3, #154554)'
+                                bgClip='text'
+                                fontWeight='extrabold'
+                                >{catParams.category}</Heading> 
+                        )
                 }
         })
   },[catParams])

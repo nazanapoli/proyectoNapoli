@@ -1,7 +1,19 @@
-import { Box, Image, Stat, StatNumber, Text, Select } from '@chakra-ui/react';
+import { Box, Image, Stat, StatNumber, Text, Select, Button } from '@chakra-ui/react';
 import ItemCount from '../ItemCount/ItemCount'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const ItemDetail = ({detail}) => {
+
+  const [contadorGeneral, setContadorGeneral] = useState(0)
+
+  const [isAdded, setIsAdded]= useState(false)
+
+  function onAdd() {
+    setIsAdded(true)
+    console.log(contadorGeneral)
+  }
+
   return (
     <>
       <Box
@@ -52,7 +64,23 @@ export const ItemDetail = ({detail}) => {
                 <option value='option5'>XL</option>
               </Select>
 
-              <ItemCount initial={1} stock={detail.stock} onAdd={() => {}} />
+              {
+                isAdded ?
+                <Button
+                    gridArea='btn'
+                    display="grid"
+                    width="100%"
+                    border="2px"
+                    borderColor="#b5cbd0"
+                    color="#6c949c"
+                  >
+                  <Link to='/cart'>
+                    Ir al carrito
+                  </Link>
+                </Button>
+                :
+                <ItemCount initial={1} stock={detail.stock} onAdd={onAdd} contadorGeneral={contadorGeneral} setContadorGeneral={setContadorGeneral} /> 
+              }
 
             </Box>
 
