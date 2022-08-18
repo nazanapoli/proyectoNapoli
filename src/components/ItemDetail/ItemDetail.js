@@ -1,17 +1,20 @@
 import { Box, Image, Stat, StatNumber, Text, Select, Button } from '@chakra-ui/react';
 import ItemCount from '../ItemCount/ItemCount'
-import { useState } from 'react';
+import {cartContext } from '../../context/CartContext.js/CartContext'
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 export const ItemDetail = ({detail}) => {
 
   const [contadorGeneral, setContadorGeneral] = useState(0)
-
+  const { isInCart ,addItem, cartList } = useContext(cartContext)
+  const [quantity, setQuantity] = useState(1)
   const [isAdded, setIsAdded]= useState(false)
 
   function onAdd() {
     setIsAdded(true)
-    console.log(contadorGeneral)
+    addItem(detail, quantity)
+    isInCart(detail.id)
   }
 
   return (
@@ -79,7 +82,7 @@ export const ItemDetail = ({detail}) => {
                   </Link>
                 </Button>
                 :
-                <ItemCount initial={1} stock={detail.stock} onAdd={onAdd} contadorGeneral={contadorGeneral} setContadorGeneral={setContadorGeneral} /> 
+                <ItemCount initial={1} stock={detail.stock} onAdd={onAdd} setContadorGeneral={setContadorGeneral} quantity={quantity} setQuantity={setQuantity} /> 
               }
 
             </Box>

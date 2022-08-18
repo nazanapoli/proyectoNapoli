@@ -86,7 +86,6 @@ a{
 .pointer{
     cursor: pointer;
 }
-.pointer:hover{
-    transition: ease-in-out 0.75s;
-    transform: scale(1.05);
+.containerCart{
+    display: flex;
 }

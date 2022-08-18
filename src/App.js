@@ -1,3 +1,4 @@
+import { MyProvider } from "./context/CartContext.js/CartContext";
 import NavBar from "./components/NavBars/NavBars";
 import Main from "./components/Main/Main";
 import Footer from './components/Footer/Footer'
@@ -7,9 +8,11 @@ function App(){
   return(
     <BrowserRouter>
       <ChakraProvider>
-         <NavBar/>
-         <Main/>
-         <Footer/>
+        <MyProvider>
+          <NavBar/>
+          <Main/>
+          <Footer/>
+        </MyProvider>
       </ChakraProvider>
     </BrowserRouter>
   )

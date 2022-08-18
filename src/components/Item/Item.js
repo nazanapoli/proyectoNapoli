@@ -1,6 +1,5 @@
 import { HStack, Box, Image, Stat, Badge, StatNumber, StatHelpText } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import ItemCount from '../ItemCount/ItemCount';
 import ItemButtonDetalle from '../ItemButtonDetalle/ItemButtonDetalle';
 export const Item = ({ product }) => {
   return (
@@ -48,8 +47,6 @@ export const Item = ({ product }) => {
             <StatNumber>${product.price}</StatNumber>
             <StatHelpText>{product.size}</StatHelpText>
           </Stat>
-
-          <ItemCount initial={1} stock={product.stock} onAdd={() => {}} />
 
           <ItemButtonDetalle id={product.id}/>
 
