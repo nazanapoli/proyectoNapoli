@@ -2,7 +2,7 @@
     font-family: "San Francisco";
     font-weight: 400;
     src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
-  }
+}
 *{
     font-family: "San Francisco";
     box-sizing: border-box;
@@ -17,7 +17,11 @@ header{
     background: rgb(181,203,208);
     background: linear-gradient(90deg, rgba(181,203,208,1) 0%, #6c949c 100%);
 }
-
+#root{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
 main{
     max-width: 1200px;
     margin: auto;

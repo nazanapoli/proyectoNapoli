@@ -1,7 +1,7 @@
 import { ButtonGroup, Button, IconButton } from '@chakra-ui/react';
 import { AddIcon, MinusIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
-export default function ItemCount({ initial, stock, onAdd, setContadorGeneral }) {
+export default function ItemCount({ initial, stock, onAdd }) {
   const [contador, setContador] = useState(initial);
 
   function aumentarCarrito() {
@@ -9,10 +9,6 @@ export default function ItemCount({ initial, stock, onAdd, setContadorGeneral })
   }
   function decrecerCarrito() {
     initial<contador && setContador(contador - 1);
-  }
-  function agregarAlCarrito(){
-    setContadorGeneral(contador)
-    onAdd()
   }
 
   return (
@@ -33,7 +29,7 @@ export default function ItemCount({ initial, stock, onAdd, setContadorGeneral })
       </ButtonGroup>
       <Button
       gridArea='btn'
-        onClick={agregarAlCarrito}
+        onClick={()=>{onAdd(contador)}}
         size="sm"
         display="grid"
         mt="2"

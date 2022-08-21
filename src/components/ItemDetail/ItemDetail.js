@@ -7,11 +7,10 @@ import { Link } from 'react-router-dom';
 export const ItemDetail = ({detail}) => {
 
   const [contadorGeneral, setContadorGeneral] = useState(0)
-  const { isInCart ,addItem, cartList } = useContext(cartContext)
-  const [quantity, setQuantity] = useState(1)
+  const { isInCart ,addItem } = useContext(cartContext)
   const [isAdded, setIsAdded]= useState(false)
 
-  function onAdd() {
+  function onAdd(quantity) {
     setIsAdded(true)
     addItem(detail, quantity)
     isInCart(detail.id)
@@ -75,19 +74,16 @@ export const ItemDetail = ({detail}) => {
                     width="100%"
                     border="2px"
                     borderColor="#b5cbd0"
-                    color="#6c949c"
-                  >
+                    color="#6c949c">
                   <Link to='/cart'>
                     Ir al carrito
                   </Link>
                 </Button>
                 :
-                <ItemCount initial={1} stock={detail.stock} onAdd={onAdd} setContadorGeneral={setContadorGeneral} quantity={quantity} setQuantity={setQuantity} /> 
+                <ItemCount initial={1} stock={detail.stock} onAdd={onAdd} setContadorGeneral={setContadorGeneral} /> 
               }
 
             </Box>
-
-
           </Box>
 
       </Box>
