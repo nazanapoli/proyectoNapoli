@@ -1,24 +1,29 @@
 import { ItemDetail } from "../ItemDetail/ItemDetail"
 import { useEffect, useState } from "react"
-import { producto } from "../../assets/producto"
 import { Spinner, HStack, Text } from "@chakra-ui/react"
-import { customFetch } from '../../assets/customFetch'
 import { useParams } from "react-router"
+import { collection, getDoc, doc } from "firebase/firestore"
+import { dataBase } from "../../firebase"
+
 
 export const ItemDetailContainer = () => {
 
   const [detail, setDetail] = useState({})
   const [mostrar,setMostrar] = useState(true)
   const [spinner, setSpinner] = useState(false)
+  const id = useParams()
 
-  const idParams = useParams()
   useEffect(()=>{
-        customFetch(producto)
-                .then(res => {
+                const collectionProducts = collection(dataBase, "products")
+                const reference = doc(collectionProducts,id)
+                const consulta = getDoc(reference)
+
+                consulta
+                .then(res =>{
                         setSpinner(true)
-                        setDetail(res.find(item => item.id==idParams.id))
+                        setDetail(res.data())
                 })
-  },[idParams.id])
+  },[id])
 
   if(mostrar === true){
         return (

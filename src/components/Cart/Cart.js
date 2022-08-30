@@ -1,12 +1,57 @@
 import { HStack, Divider, Image, Text, Button } from '@chakra-ui/react';
-import { useContext } from 'react';
+import { useContext,useState } from 'react';
 import {cartContext } from '../../context/CartContext.js/CartContext'
 import carritoVacio from '../../assets/cart-empty.png'
 import { Link } from 'react-router-dom'
+import { dataBase } from '../../firebase';
+import { collection, addDoc , serverTimestamp } from "firebase/firestore"
+import { toast } from "react-toastify";
+
 
 export const Cart = () => {
 
   const {cartList, totalPrice, removeItem, clear} = useContext(cartContext)
+
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [usuarios, setUsuarios] = useState([]);
+
+  const nombreCompleto = `${nombre} ${apellido}`;
+
+  const handleChangeNombre = (e) => {
+    e.preventDefault()
+    const input = e.target
+    const value = input.value
+    setNombre(value)
+  }
+
+  const handleChangeApellido = (e) => {
+    const input = e.target
+    const value = input.value
+    setApellido(value)
+  }
+
+  const handleConfirm = () => {
+
+    const orden = {
+      items: cartList,
+      total : 300,
+      buyer : {
+        name : "Juan Perez",
+        phone : "123456789",
+        email : "email@mail.com"
+      },
+      date : serverTimestamp()
+    }
+
+    const ordersCollection = collection(dataBase, "orders")
+    const consulta = addDoc(ordersCollection, orden)
+
+    consulta
+      .then((res)=>{
+        toast.success(`Orden ${res.id} creada con exito!`)
+      })
+  }
 
   return (
     <HStack display='flex' flexDirection='column' alignItems='center' m='1rem auto'>
@@ -57,6 +102,20 @@ export const Cart = () => {
           </Button>
           }
         </HStack>
+
+
+
+        <HStack titulo="Carrito" subtitulo="Compra y vende">
+
+          <input type="text" placeholder="Nombre" onChange={handleChangeNombre} value={nombre} />
+          <input type="text" placeholder="Apellido" onChange={handleChangeApellido} value={apellido} />
+
+          <button onClick={handleConfirm}>guardar</button>
+
+          <ul usuarios={usuarios} />
+
+        </HStack>
+
     </HStack>
   )
 }

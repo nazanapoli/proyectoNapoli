@@ -1,9 +1,9 @@
 import { Heading, Spinner, HStack, Text } from '@chakra-ui/react'
 import { ItemList } from '../ItemList/ItemList'
-import {producto} from "../../assets/producto"
-import { customFetch } from "../../assets/customFetch"
 import { useState, useEffect } from "react"
 import { useParams } from 'react-router'
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { dataBase } from "../../firebase"
 
 export default function ItemListContainer ({ greeting }){
 
@@ -12,13 +12,22 @@ export default function ItemListContainer ({ greeting }){
   const catParams = useParams()
 
   useEffect(()=>{
-    customFetch(producto)
-        .then(data => {
+
+                const collectionProducts = collection(dataBase, "products")
+                const filtro = query(collectionProducts, where("category","==",catParams))
+                const consulta = getDocs(collectionProducts)
+                
+                consulta
+                .then(snapshot =>{
+                      const product = snapshot.docs.map(doc => {
+                        return {...doc.data(), id: doc.id}
+                })
+                setListaProductos(filtro)
                 setSpinner(true)
                 if (!catParams.category) {
-                        setListaProductos(data)
+                        setListaProductos(product)
                 } else {
-                        setListaProductos(data.filter(item => item.category === catParams.category))
+                        setListaProductos(product.filter(item => item.category === catParams.category))
                         return(
                                 <Heading size='2xl'
                                 p='2'
@@ -29,8 +38,8 @@ export default function ItemListContainer ({ greeting }){
                                 >{catParams.category}</Heading> 
                         )
                 }
-        })
-  },[catParams])
+        })            
+},[catParams])
     return (
         <>
                 <Heading size='2xl'
